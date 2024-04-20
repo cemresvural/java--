@@ -1,13 +1,14 @@
 spring:
   application:
-    name: orderservice
+    name: discoveryserver
 
 server:
-  port: 8085
+  port: 8888
+
 
 eureka:
   client:
     serviceUrl:
+      registerWithEureka: false
+      fetchRegistry: false
       defaultZone: http://localhost:8888/eureka/
-    registerWithEureka: true
-    fetchRegistry: true
