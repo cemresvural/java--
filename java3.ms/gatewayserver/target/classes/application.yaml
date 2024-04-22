@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: gatewayserver
+  cloud:
+    gateway:
+      routes:
+        - id: productservice
+          uri: http://localhost:8086
+          predicates:
+            - Path=/api/v1/products/**
+        - id: orderservice
+          uri: http:/localhost:8085
+          predicates:
+            - Path=/api/v1/orders/**
+
+
+server:
+  port: 8080
+
+
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
